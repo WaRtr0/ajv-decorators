@@ -1,5 +1,5 @@
 {
-  "name": "my-class-validator",
+  "name": "ajv-decorators",
   "version": "0.1.0",
   "description": "A class-validator like library to generate AJV schemas",
   "type": "module",
