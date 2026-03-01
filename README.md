@@ -116,7 +116,7 @@ registerValidators(ajv);
 
 ## Perfect match for Fastify
 
-If you are a Fastify user, `ajv-decorators` pairs incredibly well with **[fastify-oop-decorators](https://www.google.com/search?q=https://github.com/WaRtr0/fastify-oop-decorators)**. You can build your entire application architecture and DTOs using elegant classes, while feeding Fastify the pure JSON schemas it needs to keep its routing and validation insanely fast.
+If you are a Fastify user, `ajv-decorators` pairs incredibly well with **[fastify-oop-decorators](https://github.com/WaRtr0/fastify-oop-decorators)**. You can build your entire application architecture and DTOs using elegant classes, while feeding Fastify the pure JSON schemas it needs to keep its routing and validation insanely fast.
 
 ## Contributing
 
