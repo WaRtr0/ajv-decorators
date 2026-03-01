@@ -14,7 +14,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json"
   },
-  "dependencies": {
+  "peerDependencies": {
     "reflect-metadata": "^0.2.0"
   },
   "devDependencies": {
