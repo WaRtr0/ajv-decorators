@@ -6,7 +6,10 @@ export function IsRequired(options?: { message?: string }): PropertyDecorator {
 		const validations = Reflect.getMetadata(METADATA_KEYS.validation, target.constructor) || {};
 
 		if (!validations[propertyKey]) {
-			validations[propertyKey] = {};
+			validations[propertyKey] = { errorMessage: {} };
+		}
+		if (!validations[propertyKey].errorMessage) {
+			validations[propertyKey].errorMessage = {};
 		}
 
 		validations[propertyKey].isRequired = true;
