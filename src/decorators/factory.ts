@@ -88,6 +88,32 @@ export function createFormatDecorator(formatName: string, defaultMessage: string
 	};
 }
 
+export function createPatternDecorator(regex: RegExp, defaultMessage: string) {
+    return (options?: { message?: string }): PropertyDecorator => {
+        return (target: object, propertyKey: string | symbol) => {
+            updateAndSetMetadata(target, propertyKey, (propValidations) => {
+                const appliesToType = 'string';
+                if (!propValidations.type) {
+                    propValidations.type = appliesToType;
+                } else if (propValidations.type !== appliesToType) {
+                    throw new Error(
+                        `Decorator for pattern can only be used on properties of type '${appliesToType}', but property '${String(
+                            propertyKey,
+                        )}' has type '${propValidations.type}'.`,
+                    );
+                }
+                if (!propValidations.constraints) propValidations.constraints = [];
+                propValidations.constraints.push({
+                    key: 'pattern',
+                    value: regex.source,
+                    appliesToTypes: ['string'],
+                    errorMessage: options?.message || defaultMessage,
+                });
+            });
+        };
+    };
+}
+
 interface CustomValidator {
 	keyword: string;
 	validate: (value: any) => boolean | Promise<boolean>;
